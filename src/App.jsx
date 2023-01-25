@@ -1,36 +1,40 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
+import { useContext } from "react";
 import { useEffect, useState } from "react";
 import Cards from "./components/Cards/Cards";
 import Filters from "./components/Filters/Filters";
 import Pagination from "./components/Pagination/Pagination";
+import Search from "./components/Search/Search";
+import { SearchContext } from "./contexts/SearchContext";
 
 function App() {
-  const [pageNumber, setPageNumber] = useState(1);
   const [fetchedData, setFetchedData] = useState([]);
-  const {info, results} = fetchedData;
+  const { info, results } = fetchedData;
+  const { pageNumber,  search, species, gender, status } = useContext(SearchContext)
 
-  const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}`;
+
+
+  let url = `https://rickandmortyapi.com/api/character/`
+  let query = `?page=${pageNumber}&name=${search}&species=${species}&gender=${gender}&status=${status}`
+  let api = url + query;
 
   useEffect(() => {
-
     (async () => {
       const data = await fetch(api).then(res => res.json());
       setFetchedData(data);
     })()
-
-  }, [api])
+  }, [api]);
 
   return (
     <div className="App">
       <h1 className="text-center ubuntu my-4">Rick & Morty <span className="text-primary">WiKi</span> </h1>
+
+      <Search />
+
       <div className='container'>
         <div className="row">
-
-          <div className='col-3 ='>
-            <Filters />
-          </div>
-
+          <Filters />
           <div className='col-8'>
             <div className="row">
               <Cards results={results} />
@@ -39,7 +43,7 @@ function App() {
 
         </div>
       </div>
-      <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber}/>
+      <Pagination info={info}/>
     </div>
   );
 }

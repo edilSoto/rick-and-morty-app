@@ -1,16 +1,19 @@
 import React from 'react'
+import { handleMouseUp } from '../../helpers/handleMouseUp';
 
-const FilterBtn = ({category, query}) => {
+const FilterBtn = ({ name, hook, category, index }) => {
+
     return (
         <div>
+            
             <div className="form-check">
                 <input 
-                className="btn-check" 
+                className="form-check-input btn-check" 
                 type="radio" 
-                name="flexRadioDefault" 
-                id={category}
+                name={name} 
+                id={category + index}
                 />
-                <label  className="btn btn-outline-primary" htmlFor={category}>
+                <label onMouseUp={(event) => handleMouseUp(hook, event)} className="btn btn-outline-primary" htmlFor={category}>
                         {category}
                     </label>
             </div>

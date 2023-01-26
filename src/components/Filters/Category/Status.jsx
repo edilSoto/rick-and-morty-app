@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
+import { searchContext } from '../../../contexts/SearchContext';
 import FilterBtn from '../FilterBtn'
 
 const Status = () => {
 
-    const [statuses, setStatuses] = useState([
+    const {setStatus} = useContext(searchContext);
+
+    const statuses = [
         "Alive",
         "Dead",
         "unknown"
-    ]);
+    ];
     
 
 
@@ -20,8 +23,8 @@ const Status = () => {
             </h2>
             <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div className="accordion-body">
-                    {statuses.map(status => (
-                        <FilterBtn key={status} category={status} query={`status=${status}`} />
+                    {statuses.map((status, index) => (
+                        <FilterBtn name={'status'} key={index} index={index} category={status} hook={setStatus} />
                     ))}
                 </div>
             </div>

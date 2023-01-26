@@ -6,7 +6,7 @@ const Cards = ({ results }) => {
     let display;
     let styleClass;
 
-    if (results) {
+    if (results) { 
         display = results.map(elem => {
 
             (elem.status === "Dead") ? styleClass = 'bg-danger' :

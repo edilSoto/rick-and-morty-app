@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
+import { searchContext } from '../../../contexts/SearchContext';
 import FilterBtn from '../FilterBtn'
 
 const Gender = () => {
 
-    const [genders, setGenders] = useState([
+    const {setGender} = useContext(searchContext);
+
+    const genders= [
         "Female",
         "Genderless",
         "Male",
         "unknown",
-    ]);
+    ];
 
     return (
         <div className="accordion-item">
@@ -19,8 +22,8 @@ const Gender = () => {
             </h2>
             <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div className="accordion-body">
-                    {genders.map(gender => (
-                        <FilterBtn key={gender} category={gender} query={`gender=${gender}`} />
+                    {genders.map((gender, index) => (
+                        <FilterBtn name={'gender'} key={index} index={index} category={gender} hook={setGender} />
                     ))}
                 </div>
             </div>

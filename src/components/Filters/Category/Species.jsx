@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { useContext } from 'react';
+import { searchContext } from '../../../contexts/SearchContext';
 import FilterBtn from '../FilterBtn';
 
 const Species = () => {
 
-    const [species, setSpecies] = useState([
+    const {setSpecies} = useContext(searchContext);
+
+    const species = [
         "Alien",
         "Animal",
         "Cronenberg",
@@ -14,7 +18,7 @@ const Species = () => {
         "Poopybutthole",
         "Robot",
         "unknown",
-    ]);
+    ];
 
     return (
         <div className="accordion-item">
@@ -25,8 +29,8 @@ const Species = () => {
             </h2>
             <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                 <div className="accordion-body">
-                    {species.map(specie => (
-                        <FilterBtn key={specie} category={specie} query={`species=${specie}`}/>
+                    {species.map((specie, index) => (
+                        <FilterBtn name={'specie'} key={index} category={specie} index={index} hook={setSpecies}/>
                     ))}
                 </div>
             </div>

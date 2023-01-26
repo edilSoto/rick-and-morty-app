@@ -3,9 +3,9 @@ import { createContext } from "react";
 
 
 
-export const SearchContext = createContext();
+export const searchContext = createContext();
 
-export const SearchContextProvider = (props) => {
+export const SearchContext = ({children}) => {
 
     const [pageNumber, setPageNumber] = useState(1);
     const [search, setSearch] = useState('');
@@ -14,12 +14,12 @@ export const SearchContextProvider = (props) => {
     const [status, setStatus] = useState('');
 
     return (
-        <SearchContext.Provider value={{
+        <searchContext.Provider value={{
             pageNumber, setPageNumber,
             search, setSearch,
             species, setSpecies,
             gender, setGender,
             status, setStatus
-        }}>{props.children}</SearchContext.Provider>
+        }}>{children}</searchContext.Provider>
     )
 }

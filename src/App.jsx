@@ -6,18 +6,18 @@ import Cards from "./components/Cards/Cards";
 import Filters from "./components/Filters/Filters";
 import Pagination from "./components/Pagination/Pagination";
 import Search from "./components/Search/Search";
-import { SearchContext } from "./contexts/SearchContext";
+import { searchContext } from "./contexts/SearchContext";
 
 function App() {
   const [fetchedData, setFetchedData] = useState([]);
   const { info, results } = fetchedData;
-  const { pageNumber,  search, species, gender, status } = useContext(SearchContext)
+  const { pageNumber,  search, species, gender, status } = useContext(searchContext)
 
 
 
-  let url = `https://rickandmortyapi.com/api/character/`
-  let query = `?page=${pageNumber}&name=${search}&species=${species}&gender=${gender}&status=${status}`
-  let api = url + query;
+  const url = `https://rickandmortyapi.com/api/character/`
+  const query = `?page=${pageNumber}&name=${search}&species=${species}&gender=${gender}&status=${status}`
+  const api = url + query;
 
   useEffect(() => {
     (async () => {

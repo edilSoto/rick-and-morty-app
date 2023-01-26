@@ -1,12 +1,12 @@
 import React from 'react'
 import { useContext } from 'react'
-import { SearchContext } from '../../contexts/SearchContext';
+import { searchContext } from '../../contexts/SearchContext';
 import styles from './search.module.scss'
 
 
 const Search = () => {
 
-    const {setPageNumber, setSearch} = useContext(SearchContext);
+    const {setPageNumber, setSearch} = useContext(searchContext);
 
     return (
         <form className="d-flex justify-content-center gap-5 mb-5">
@@ -18,7 +18,6 @@ const Search = () => {
                 type="text"
                 className={`${styles.input}`}
             />
-            <button className={`btn btn-primary fs-5 ${styles.btn}`}>Search</button>
         </form>
     )
 }

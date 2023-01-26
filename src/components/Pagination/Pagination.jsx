@@ -1,12 +1,12 @@
 import React from 'react'
 import { useContext } from 'react';
 import ReactPaginate from 'react-paginate'
-import { SearchContext } from '../../contexts/SearchContext';
+import { searchContext } from '../../contexts/SearchContext';
 import styles from './Pagination.module.scss'
 
 const Pagination = ({ info }) => {
 
-    const { setPageNumber } = useContext(SearchContext);
+    const { setPageNumber } = useContext(searchContext);
 
     return (
         <ReactPaginate 
@@ -15,7 +15,7 @@ const Pagination = ({ info }) => {
         previousLabel='Prev'
         previousClassName='btn btn-primary'
         nextLabel='Next'
-        nextClassName={`btn btn-primary ${styles.a}`}
+        nextClassName={`btn btn-primary text-decoration-none`}
         pageClassName='page-item'
         pageLinkClassName='page-link'
         activeClassName='active'

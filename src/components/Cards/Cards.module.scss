@@ -1,20 +1,20 @@
 $radius: 10px;
 
-.badge{
-    top: 17px;
-    right: 20px;
-    font-size: 15px;
- }
+.badge {
+   top: 17px;
+   right: 20px;
+   font-size: 15px;
+}
 
- .cards {
-    border: 2px solid #0b5ed7;
-    border-radius: $radius;
- }
+.cards {
+   border: 2px solid #0b5ed7;
+   border-radius: $radius;
+}
 
- .img {
-    border-radius: $radius $radius 0 0;
- }
+.img {
+   border-radius: $radius $radius 0 0;
+}
 
 .p10 {
-    padding: 10px;
+   padding: 10px;
 }

@@ -7,8 +7,8 @@ import { SearchContext } from './contexts/SearchContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <SearchContext.Provider>
+    <SearchContext>
       <App />
-    </SearchContext.Provider>
+    </SearchContext>
   </React.StrictMode>
 );

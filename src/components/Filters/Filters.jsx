@@ -7,14 +7,14 @@ const Filters = () => {
   return (
     <div className='col-3'>
       <div className="text-center fw-bold fs-4 mb-2">Filter</div>
-      
-      <div style={{ cursor: 'pointer' }} className="text-center text-primary text-decoration-underline mb-2">Clear Filters</div>
-      
-      <div className="accordion" id="accordionExample">
-      <Gender />
-      <Status />
-      <Species />
-    </div>
+
+      <div style={{ cursor: 'pointer' }} onClick={() => window.location.reload()} className="text-center text-primary text-decoration-underline mb-2">Clear Filters</div>
+
+      <div className="accordion open" id="accordionExample">
+        <Gender />
+        <Status />
+        <Species />
+      </div>
 
     </div >
   )

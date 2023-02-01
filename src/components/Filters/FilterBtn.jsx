@@ -13,7 +13,7 @@ const FilterBtn = ({ name, hook, category, index }) => {
                 name={name} 
                 id={category + index}
                 />
-                <label onMouseUp={(event) => handleMouseUp(hook, event)} className="btn btn-outline-primary" htmlFor={category}>
+                <label onMouseUp={(event) => handleMouseUp(hook, event)} className="btn btn-outline-primary" htmlFor={category + index}>
                         {category}
                     </label>
             </div>

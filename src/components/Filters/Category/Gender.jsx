@@ -20,7 +20,7 @@ const Gender = () => {
                     Gender
                 </button>
             </h2>
-            <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne">
                 <div className="accordion-body">
                     {genders.map((gender, index) => (
                         <FilterBtn name={'gender'} key={index} index={index} category={gender} hook={setGender} />

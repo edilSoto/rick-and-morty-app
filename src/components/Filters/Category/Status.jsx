@@ -4,14 +4,14 @@ import FilterBtn from '../FilterBtn'
 
 const Status = () => {
 
-    const {setStatus} = useContext(searchContext);
+    const { setStatus } = useContext(searchContext);
 
     const statuses = [
         "Alive",
         "Dead",
         "unknown"
     ];
-    
+
 
 
     return (
@@ -21,7 +21,7 @@ const Status = () => {
                     Status
                 </button>
             </h2>
-            <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" >
                 <div className="accordion-body">
                     {statuses.map((status, index) => (
                         <FilterBtn name={'status'} key={index} index={index} category={status} hook={setStatus} />
